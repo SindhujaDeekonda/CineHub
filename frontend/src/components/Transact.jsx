@@ -125,7 +125,7 @@ const Transact = () => {
     <div>
       <center>
         <h1>MetaMask wallet connection</h1>
-        <button onClick={connectWallet}>coneect wallet button</button>
+        <button onClick={connectWallet}>connect wallet button</button>
         <h3>Address : {defaultAccount}</h3>
         <h3>Balance : {userBalance}</h3>
         {/* <form onSubmit={sendTransaction}>
