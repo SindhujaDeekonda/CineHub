@@ -1,54 +1,80 @@
-# project01.1 ~ *CineHub* 
-This is a mern based project which is basically like netflix in which payment is operated with ethereum blockchain network.
-# APIS
-> themoviedb : https://www.themoviedb.org/
 
-# Built-With 
-- Reacjs
-+ Nodejs
-- Mongodb
+![Logo](https://styles.redditmedia.com/t5_2xejzr/styles/mobileBannerImage_auzwvg8dz0q51.png)
+
+
+# Cine Hub
+
+A Netflix like platform where users can buy/rent movies and TV shows by paying with ethers.
+## Tech Stack
+
+**Client:** 
++ React
++ Redux
+
+**Server:** 
++ Node 
 + Express
-- Etherjs
++ MongoDB
 
-# Installation
-Below are the step by step instructions to pull the repository and run it in your system locally:
-  1. Clone the repository into your local drive
-  
-  git clone https://github.com/Eashwarsai/project01.1.git 
-  
-  2. Open the folder in your IDE or Terminal then move to backend folder
-  
-  cd backend
-  
-  3. Install node modules
-  
+
+## API Reference
+
+#### Firebase
+
+```http
+  https://firebase.google.com/docs/auth
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `api_key` | `string` | 00562d3f9999cdd2fab680d2aefc85eb |
+
+#### TMDB (The movie data base)
+
+```http
+  https://api.themoviedb.org/3
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `api_key` | `string` | AIzaSyCaqvIPdxF0mPO4RwFf9o-lGhGX9DKYEMs |
+
+
+
+
+
+
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/SindhujaDeekonda/CineHub.git
+```
+
+Go to the project directory
+
+```bash
+  cd Backend
+```
+
+Install dependencies
+
+```bash
   npm install
-  
-  4. Start the server
-  
+```
+
+Start the server
+
+```bash
   npm start
-  
-  5.Open another terminal and move to frontend folder
-  
-  cd frontend
-  
-  6.Intall node modules
-  
-  npm install
-  
-  7.Start the react app
-  
-  npm start
+```
+Repeat the same for frontend and start the react app.
 
-# Upcoming implementations
-- [ ] Project is only for buying movies have to add functionality for renting movies.
-- [ ] Instead of always going to MyList to access the movies we bought make them possible to access from their current position.
-- [ ] Increase security by providing OTP login
-- [ ] Provide users with glimse of movie like some trailer or teaser so that they can decide to go for the movie or not.
-# Contact 
-  > EashwarSai - @eashwarsaiboini@gmail.com
 
- All suggestions are accepted anyone who wish to give suggestion on the project kindly mail to the above mailId
+## Demo Video
 
-# Demo Video
-https://user-images.githubusercontent.com/119802849/206112904-cda3c526-1539-4d30-8015-0e0aeffc978a.mp4 
+## Feedback
+
+If you have any feedback, please reach out to me at dsindhujasri.vspm@gmail.com
+
