@@ -21,8 +21,8 @@ A Netflix like platform where users can buy movies and TV shows by paying with e
 
 #### Firebase
 
-```http://firebase.google.com/docs/auth
-  https
+```http
+  https://firebase.google.com/docs/auth
 ```
 
 | Parameter | Type     | Description                |
