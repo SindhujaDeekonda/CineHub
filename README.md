@@ -4,7 +4,7 @@
 
 # Cine Hub
 
-A Netflix like platform where users can buy/rent movies and TV shows by paying with ethers.
+A Netflix like platform where users can buy movies and TV shows by paying with ethers.
 ## Tech Stack
 
 **Client:** 
