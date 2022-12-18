@@ -20,7 +20,7 @@ export default function useLiked() {
   console.log(movies);
   // const genres = useSelector((state) => state.netflix.genres);
   const dispatch = useDispatch();
-  
+
   const [email, setEmail] = useState(undefined);
   onAuthStateChanged(firebaseAuth, (currentUser) => {
     if (currentUser) setEmail(currentUser.email);
@@ -40,33 +40,40 @@ export default function useLiked() {
     return () => (window.onscroll = null);
   };
   // console.log(getUserLikedMovies(email))
-  return <Container>
-    <Navbar isScrolled={isScrolled}/>
-    <div className="content flex column">
-      <h1>MyList</h1>
-      <div className="grid flex">
-        {
-          
-          movies.map((movie, index) => {
-            
-            return <Cardown movieData={movie} index={index} key={movie.id} isLiked={true} />
-          })
-        }
+  return (
+    <Container>
+      <div className="navbar">
+        <Navbar isScrolled={isScrolled} />
       </div>
-    </div>
-  </Container>
+      <div className="content flex column">
+        <h1>MyList</h1>
+        <div className="grid flex">
+          {movies.map((movie, index) => {
+            return (
+              <Cardown
+                movieData={movie}
+                index={index}
+                key={movie.id}
+                isLiked={true}
+              />
+            );
+          })}
+        </div>
+      </div>
+    </Container>
+  );
 }
 const Container = styled.div`
-  .content{
-    margin:2.3rem;
-    margin-top:8rem;
-    gap:3rem;
-    h1{
-      margin-left:3rem;
+  .content {
+    margin: 2.3rem;
+    margin-top: 8rem;
+    gap: 3rem;
+    h1 {
+      margin-left: 3rem;
     }
-    .grid{
-      flex-wrap:wrap;
-      gap:1rem;
+    .grid {
+      flex-wrap: wrap;
+      gap: 1rem;
     }
   }
 `;
