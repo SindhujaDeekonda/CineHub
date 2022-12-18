@@ -32,7 +32,7 @@ A Netflix like platform where users can buy movies and TV shows by paying with e
 #### TMDB (The movie data base)
 
 ```http
-  https://api.themoviedb.org/3
+  https://www.themoviedb.org/
 ```
 
 | Parameter | Type     | Description                |
