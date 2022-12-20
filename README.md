@@ -25,20 +25,11 @@ A Netflix like platform where users can buy movies and TV shows by paying with e
   https://firebase.google.com/docs/auth
 ```
 
-| Parameter | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `api_key` | `string` | 00562d3f9999cdd2fab680d2aefc85eb |
-
 #### TMDB (The movie data base)
 
 ```
   https://www.themoviedb.org/
 ```
-
-| Parameter | Type     | Description                |
-| :-------- | :------- | :------------------------- |
-| `api_key` | `string` | AIzaSyCaqvIPdxF0mPO4RwFf9o-lGhGX9DKYEMs |
-
 
 
 
