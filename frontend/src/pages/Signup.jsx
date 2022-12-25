@@ -1,11 +1,14 @@
-import { createUserWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import {
+  createUserWithEmailAndPassword,
+  onAuthStateChanged,
+} from "firebase/auth";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 // import { Navigate } from 'react-router-dom';
-import styled from 'styled-components'
-import BackgroundImage from '../components/BackgroundImage';
-import Header from '../components/Header';
-import { firebaseAuth } from '../utils/firebase-config'
+import styled from "styled-components";
+import BackgroundImage from "../components/BackgroundImage";
+import Header from "../components/Header";
+import { firebaseAuth } from "../utils/firebase-config";
 export default function Signup() {
   const [showPassword, setShowPassword] = useState(false);
   const [formValues, setFormValues] = useState({
@@ -15,41 +18,58 @@ export default function Signup() {
   const handleSignIn = async () => {
     try {
       const { email, password } = formValues;
-      await createUserWithEmailAndPassword(firebaseAuth,email,password);
-    } catch (err)
-    {
+      await createUserWithEmailAndPassword(firebaseAuth, email, password);
+    } catch (err) {
       console.log(err);
     }
-  }
+  };
   const navigate = useNavigate();
   onAuthStateChanged(firebaseAuth, (currentUser) => {
-    if(currentUser) navigate("/")
-  })
+    if (currentUser) navigate("/");
+  });
   return (
-    <Container  showPassword={showPassword}>
+    <Container showPassword={showPassword}>
       <BackgroundImage />
       <div className="content">
         <Header login />
         <div className="body flex column a-center j-center">
           <div className="text flex column">
-            <h1>unlimited movies tv shows and more</h1>
-            <h4>Watch anywhere cancel anytime.</h4>
+            <h1>Unlimited movies TV shows and more</h1>
+            <h4>Watch anywhere Cancel anytime.</h4>
             <h6>
               Ready to watch? Enter Your email to create or restart membership
             </h6>
           </div>
           <div className="form">
-            <input type="email" placeholder="Email Address" name="email" value={formValues.email} onChange={(e) => setFormValues({
-              ...formValues,
-              [e.target.name]:e.target.value,
-            })} />
-            {
-              showPassword && (<input type="password" placeholder="Password" name="password" value={formValues.password} onChange={(e) => setFormValues({
-                ...formValues,
-                [e.target.name]: e.target.value,
-              })} />)
-            }
-            {!showPassword && <button onClick={()=>setShowPassword(true)}>Get Started</button>}
+            <input
+              type="email"
+              placeholder="Email Address"
+              name="email"
+              value={formValues.email}
+              onChange={(e) =>
+                setFormValues({
+                  ...formValues,
+                  [e.target.name]: e.target.value,
+                })
+              }
+            />
+            {showPassword && (
+              <input
+                type="password"
+                placeholder="Password"
+                name="password"
+                value={formValues.password}
+                onChange={(e) =>
+                  setFormValues({
+                    ...formValues,
+                    [e.target.name]: e.target.value,
+                  })
+                }
+              />
+            )}
+            {!showPassword && (
+              <button onClick={() => setShowPassword(true)}>Get Started</button>
+            )}
           </div>
           <button onClick={handleSignIn}>Signup</button>
         </div>
@@ -74,14 +94,15 @@ const Container = styled.div`
     .text {
       gap: 1rem;
       text-align: center;
-      font-size: 2rem;
+      font-size: 1.7rem;
       h1 {
         padding: 0 25rem;
       }
     }
     .form {
       display: grid;
-      grid-template-columns:${({showPassword})=>showPassword ? "1fr 1fr":"2fr 1fr"};
+      grid-template-columns: ${({ showPassword }) =>
+        showPassword ? "1fr 1fr" : "2fr 1fr"};
       width: 60%;
       input {
         color: black;
@@ -97,7 +118,7 @@ const Container = styled.div`
         padding: 0.5rem 1rem;
         background-color: #e50914;
         border: none;
-        curser: pointer;
+        cursor: pointer;
         color: white;
         border-radius: 0.2rem;
         font-weight: bolder;
@@ -108,7 +129,7 @@ const Container = styled.div`
       padding: 0.5rem 1rem;
       background-color: #e50914;
       border: none;
-      curser: pointer;
+      cursor: pointer;
       color: white;
       border-radius: 0.2rem;
       font-weight: bolder;

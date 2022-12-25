@@ -39,18 +39,20 @@ const Transact = () => {
       setErrorMessage("Install MetaMask please!!");
     }
   };
-  const myown = async() => {
-      let params = [
-        {
-          from: defaultAccount.toString(),
-          to: "0xf03345c585442f97C7733AFC44238f26F0F4D4E8",
-          gas: Number(31000).toString(16),
-          gasPrice: Number(3000000).toString(16),
-          value: Number(1 * 1e18).toString(16),
-        },
-      ];
-      let result = await window.ethereum.request({ method: "eth_sendTransaction", params }).then(async(balance) => {
-          console.log(location.state.email);
+  const myown = async () => {
+    let params = [
+      {
+        from: defaultAccount.toString(),
+        to: "0xf03345c585442f97C7733AFC44238f26F0F4D4E8",
+        gas: Number(31000).toString(16),
+        gasPrice: Number(3000000).toString(16),
+        value: Number(1 * 1e18).toString(16),
+      },
+    ];
+    let result = await window.ethereum
+      .request({ method: "eth_sendTransaction", params })
+      .then(async (balance) => {
+        console.log(location.state.email);
         setUserBalance(ethers.utils.formatEther(balance));
         const email = location.state.email;
         const movieData = location.state.movieData;
@@ -62,13 +64,14 @@ const Transact = () => {
         } catch (e) {
           console.log(e);
         }
-        }).catch((err) => {
-          console.log(err);
-        });
-      console.log(result);
-      console.log(userBalance);
-      navigate("/mylist");
-  }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+    console.log(result);
+    console.log(userBalance);
+    navigate("/mylist");
+  };
   const accountChanged = (accountName) => {
     setDefaultAccount(accountName);
     getUserBalance(accountName);
@@ -82,7 +85,6 @@ const Transact = () => {
       .then((balance) => {
         setUserBalance(ethers.utils.formatEther(balance));
       });
-      
   };
   async function sendTransaction(e) {
     if (e.target.v.value == 2) {
@@ -106,28 +108,36 @@ const Transact = () => {
       } catch (e) {
         console.log(e);
       }
-      let result = await window.ethereum.request({ method: "eth_sendTransaction", params }).then(() => {
-        console.log(location.state.email);
-        navigate("/mylist");
-        // setUserBalance(ethers.utils.formatEther(balance));
-      }).catch((err) => {
-        console.log(err);
-      });
+      let result = await window.ethereum
+        .request({ method: "eth_sendTransaction", params })
+        .then(() => {
+          console.log(location.state.email);
+          navigate("/mylist");
+          // setUserBalance(ethers.utils.formatEther(balance));
+        })
+        .catch((err) => {
+          console.log(err);
+        });
       console.log(result);
-      
-    }
-    else {
-      navigate('/movies');
+    } else {
+      navigate("/movies");
     }
     navigate("/mylist");
   }
   return (
     <div>
       <center>
-        <h1>MetaMask wallet connection</h1>
+        <br></br>
+        <br></br>
+        <h1>MetaMask Wallet Connection</h1>
+        <br></br>
         <button onClick={connectWallet}>connect wallet button</button>
+        <br></br>
+        <br></br>
         <h3>Address : {defaultAccount}</h3>
+
         <h3>Balance : {userBalance}</h3>
+        <br></br>
         {/* <form onSubmit={sendTransaction}>
           <h1>pay 2 ethers to buy this movie: </h1>
           <input type="text" name="v" placeholder="value" />
@@ -136,7 +146,7 @@ const Transact = () => {
         {/* {errorMessage} */}
         {/* <input type="button" value="confirm" onClick={() => navigate("/netflix")} /> */}
         {/* <input type="button" value="confirm" onClick={sendTransaction} /> */}
-        <input type="button" value="send" onClick={myown} />
+        <input type="button" value="Pay" onClick={myown} />
       </center>
     </div>
   );
